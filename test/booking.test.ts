@@ -153,7 +153,7 @@ describe("Booking API", () => {
     } catch (e) {
       error = e;
     }
-    expect(error).toBeInstanceOf(AxiosError); // it will give 400 status
+    expect(error).toBeInstanceOf(AxiosError); // it will give 400 status as GuestB is trying to book same unit
     expect(error.response.status).toBe(400);
     // expect(response2.status).toBe(400);
     // expect(response2.data.detail).toBe(
