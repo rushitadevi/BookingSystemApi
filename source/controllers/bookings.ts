@@ -133,7 +133,12 @@ const extendBooking = async (
 ) => {
   const { unitID, guestName, extendedNumberOfNights } = req.body;
 
-  if (unitID || guestName || extendedNumberOfNights) {
+  let isEntered = true;
+  if (unitID === "") isEntered = false;
+  else if (guestName === "") isEntered = false;
+  else if (extendedNumberOfNights === "") isEntered = false;
+
+  if (!isEntered) {
     res.status(400).json({ message: "Please enter all the inputs" });
     return;
   }
